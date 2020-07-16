@@ -22,7 +22,6 @@ jQuery(document).ready(function(){
 			nonce_code: codexin_script.ajax_nonce,
 			member_id:data_id
 		};
-
 		// jQuery("#member_bio_data .iziModal-content").html('');
 		jQuery.ajax({
 			// you can also use $.post here
@@ -40,9 +39,6 @@ jQuery(document).ready(function(){
 				}
 			}
 		});
-
-	    
-
 
 	});
 

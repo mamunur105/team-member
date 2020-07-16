@@ -25,22 +25,15 @@
 // echo plugins_url('',__FILE__);
 
 function codexin_scripts () {
-
-
 	wp_enqueue_style( 'izi-modal-style', plugins_url('',__FILE__) . '/iziModal.min.css',false,'1.1','all');
-
 	wp_enqueue_script( 'iziModal-popups',plugins_url('',__FILE__) . '/iziModal.min.js', array ( 'jquery' ), 1.1, true);
-
-
 	wp_enqueue_script( 'codexin-js',plugins_url('',__FILE__) . '/codexin.js', array ( 'jquery' ), 1.1, true);
-
 	wp_localize_script( 'codexin-js', 'codexin_script', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ) , // WordPress AJAX
 		'ajax_nonce' => wp_create_nonce('nonce_code'),
 		'button_text' => __('Load More...','codexin') // everything about your loop 
 	) );
  
-
 } // codexin_styles ()
 add_action( 'wp_enqueue_scripts', 'codexin_scripts');
 // add_action( 'admin_enqueue_scripts', 'codexin_admin_scripts');
@@ -115,12 +108,11 @@ function management_team_shortcode( $atts, $content = null ) {
 
 		extract(shortcode_atts(array(
 			'team_type' => ''
-	   ), $atts));
+	   	), $atts));
 
 	   $result = '';
 	   ob_start();
 	   ?>
-
 	   <div class="management-team">
 			<style>
 				#member_bio_data{height: 400px; overflow: hidden; }
@@ -161,9 +153,7 @@ function management_team_shortcode( $atts, $content = null ) {
 			<div class="iziModal-content"> 
 			</div>
 		</div>
-
 	   <?php $result .= ob_get_clean();
-
 	   return $result;
 
 }
@@ -177,14 +167,12 @@ function member_data_by_id_processor(){
 
 	$member_id = intval($_POST['member_id']);
 	$nonce_code = sanitize_text_field($_POST['nonce_code']);
-
 	if ( ! $member_id ) {
 	  $member_id = '';
 	}
 	if ( ! wp_verify_nonce( $nonce_code, 'nonce_code' ) ) {
 	    die( __( 'Security check', 'textdomain' ) ); 
 	}
-
 	// Get 10 most recent product IDs in date descending order.
 	$args = array(
 		'post_type' 		=> 'management-team',
@@ -194,12 +182,9 @@ function member_data_by_id_processor(){
 	// $products = $query->get_products();
 	$query = new WP_Query( $args );
 	if( $query->have_posts() ) :
- 
 		// run the loop
 		while( $query->have_posts() ): $query->the_post();
-
 			the_post_thumbnail();
-
 		endwhile;
  	else:
  		echo "<h3 class='col-sm-12 text-center'>".__('Not found','codexin')."</h3>";
