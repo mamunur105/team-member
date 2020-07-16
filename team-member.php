@@ -125,6 +125,9 @@ function management_team_shortcode( $atts, $content = null ) {
 	   ?>
 
 	   <div class="management-team">
+			<style>
+				#member_bio_data{height: 400px; overflow: hidden; }
+			</style>
 
 	   		<div class="container-">
 
@@ -183,14 +186,9 @@ function management_team_shortcode( $atts, $content = null ) {
 
 	   </div>
 
-		<style>
-			.iziModal .iziModal-content {min-height: 500px; overflow: hidden; }
-		</style>
-
-		<div id="member_bio_data">
-			
-			<div class="iziModal-content">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, dolorem, doloribus, alias atque itaque ex optio quos dolore enim, repellendus consequuntur beatae qui! Laudantium quos, ducimus impedit perspiciatis quia, incidunt.
+		
+		<div id="member_bio_data"> 
+			<div class="iziModal-content"> 
 			</div>
 		</div>
 
