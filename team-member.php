@@ -106,55 +106,55 @@ add_shortcode( 'management_team','management_team_shortcode' );
 
 function management_team_shortcode( $atts, $content = null ) {
 
-		extract(shortcode_atts(array(
-			'team_type' => ''
-	   	), $atts));
+	extract(shortcode_atts(array(
+		'team_type' => ''
+   	), $atts));
 
-	   $result = '';
-	   ob_start();
-	   ?>
-	   <div class="management-team">
-			<style>
-				#member_bio_data{height: 400px; overflow: hidden; }
-			</style>
-	   		<div class="container-">
-	   			<div class="row d-flex flex-wrap">
-					<?php
-						// Get 10 most recent product IDs in date descending order.
-						$args = array(
-							'post_type' 		=> 'management-team',
-							'posts_per_page'	=> -1
-						);
-						$script = '' ;
-						$memberbio = '' ;
-						$query = new WP_Query( $args );
-						// echo count($query_2);
-						if( $query->have_posts() ) :
-							// run the loop
-							while( $query->have_posts() ): $query->the_post(); ?>
-								<div class="col-sm-3 team-column">
-									<div class="team-member">
-										<div class="image member-id-<?php the_ID();?>" >
-											<a class="open_modal" data-id="<?php the_ID();?>" href="#">
-												<?php the_post_thumbnail(); ?>
-											</a>
-										</div>
+   $result = '';
+   ob_start();
+   ?>
+   <div class="management-team">
+		<style>
+			#member_bio_data{height: 400px; overflow: hidden; }
+		</style>
+   		<div class="container-">
+   			<div class="row d-flex flex-wrap">
+				<?php
+					// Get 10 most recent product IDs in date descending order.
+					$args = array(
+						'post_type' 		=> 'management-team',
+						'posts_per_page'	=> -1
+					);
+					$script = '' ;
+					$memberbio = '' ;
+					$query = new WP_Query( $args );
+					// echo count($query_2);
+					if( $query->have_posts() ) :
+						// run the loop
+						while( $query->have_posts() ): $query->the_post(); ?>
+							<div class="col-sm-3 team-column">
+								<div class="team-member">
+									<div class="image member-id-<?php the_ID();?>" >
+										<a class="open_modal" data-id="<?php the_ID();?>" href="#">
+											<?php the_post_thumbnail(); ?>
+										</a>
 									</div>
 								</div>
-								<?php
-							endwhile;
-						endif;
-						wp_reset_postdata();
-					?>
-	   			</div>
-	   		</div>
-	   </div>
-		<div id="member_bio_data"> 
-			<div class="iziModal-content"> 
-			</div>
+							</div>
+							<?php
+						endwhile;
+					endif;
+					wp_reset_postdata();
+				?>
+   			</div>
+   		</div>
+   </div>
+	<div id="member_bio_data"> 
+		<div class="iziModal-content"> 
 		</div>
-	   <?php $result .= ob_get_clean();
-	   return $result;
+	</div>
+   <?php $result .= ob_get_clean();
+   return $result;
 
 }
 
