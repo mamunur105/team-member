@@ -2,7 +2,7 @@
 /**
  * Plugin Name
  *
- * @package           PluginPackage
+ * @package           Team Member
  * @author            Your Name
  * @copyright         2019 Your Name or Company Name
  * @license           GPL-2.0-or-later
