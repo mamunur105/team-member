@@ -33,9 +33,9 @@ jQuery(document).ready(function(){
 			},
 			success: function(data) {
 				if (data) {		
- 					// jQuery("#member_bio_data .iziModal-content").html('');
- 					jQuery("#member_bio_data .iziModal-content").html(data);
- 					modal.iziModal('open');
+					// jQuery("#member_bio_data .iziModal-content").html('');
+					jQuery("#member_bio_data .iziModal-content").html(data);
+					modal.iziModal('open');
 				}
 			}
 		});
